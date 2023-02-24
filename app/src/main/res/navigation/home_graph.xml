@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/movieList">
+
+    <fragment
+        android:id="@+id/movieList"
+        android:name="com.example.movie.home_screen.MovieListFragment"
+        android:label="@string/movie_list" />
+
+</navigation>
