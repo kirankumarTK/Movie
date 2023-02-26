@@ -1,4 +1,4 @@
-package com.example.movie.home_screen
+package com.example.movie.home_screen.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

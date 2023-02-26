@@ -15,4 +15,7 @@ interface MovieListDao {
     @Query("Select * from MovieModel")
     suspend fun getMovieList(): List<MovieModel>
 
+    @Query("Select page from MovieModel order by page desc LIMIT 1")
+    suspend fun getPage(): Int
+
 }

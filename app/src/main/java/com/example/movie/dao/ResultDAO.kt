@@ -11,11 +11,13 @@ interface ResultDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertResult(result: List<Results>)
 
-    @Query("Select * from Results order by originalTitle  ASC")
-    suspend fun getMovieList(): List<Results>
+    @Query("Select * from Results where rowId BETWEEN (:low) AND (:high) order by originalTitle  ASC")
+    suspend fun getMovieList(low: Int, high: Int): List<Results>
 
     @Query("SELECT (SELECT COUNT(*) FROM Results) == 0")
     suspend fun hasMovies(): Boolean
 
+    @Query("SELECT COUNT(*) FROM Results")
+    suspend fun getTotalCount(): Int
 
 }

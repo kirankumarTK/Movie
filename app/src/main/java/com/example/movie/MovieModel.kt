@@ -18,10 +18,10 @@ data class MovieModel(
 @Parcelize
 @Entity
 data class Results(
-
+    @PrimaryKey(autoGenerate = true) var rowId: Int = 0,
     @ColumnInfo @SerializedName("adult") var adult: String = "",
     @ColumnInfo @SerializedName("backdrop_path") var backdropPath: String = "",
-    @ColumnInfo @SerializedName("id") @PrimaryKey var id: String = "",
+    @ColumnInfo @SerializedName("id")  var id: String = "",
     @ColumnInfo @SerializedName("original_language") var originalLanguage: String = "",
     @ColumnInfo @SerializedName("original_title") var originalTitle: String = "",
     @ColumnInfo @SerializedName("overview") var overview: String = "",

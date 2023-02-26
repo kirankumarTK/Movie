@@ -1,4 +1,4 @@
-package com.example.movie.home_screen
+package com.example.movie.home_screen.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,12 +10,17 @@ import com.example.movie.Results
 import com.example.movie.databinding.MovieListItemViewBinding
 import com.example.movie.loadImage
 
-class MovieListAdapter(private val movieList: ArrayList<Results> , private var page: Int): RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
+class MovieListAdapter(private val movieList: ArrayList<Results>) :
+    RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
 
-    class MovieViewHolder(var movieView: MovieListItemViewBinding) : RecyclerView.ViewHolder(movieView.root)
+    class MovieViewHolder(var movieView: MovieListItemViewBinding) :
+        RecyclerView.ViewHolder(movieView.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
-        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.movie_list_item_view,parent,false) )
+        DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context), R.layout.movie_list_item_view, parent, false
+        )
+    )
 
     override fun getItemCount() = movieList.size
 
@@ -25,4 +30,11 @@ class MovieListAdapter(private val movieList: ArrayList<Results> , private var p
 
         holder.movieView.movieDesc.text = movieList[position].originalTitle
     }
+
+    fun updateList(tempList: ArrayList<Results>) {
+        movieList.addAll(tempList)
+        tempList.clear()
+        notifyDataSetChanged()
+    }
+
 }

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/movieList"
-        android:name="com.example.movie.home_screen.MovieListFragment"
+        android:name="com.example.movie.home_screen.view.MovieListFragment"
         android:label="@string/movie_list" />
 
 </navigation>
