@@ -58,7 +58,6 @@ class MovieListFragment : Fragment() {
                 val movieListSize = movieAdapter.itemCount
                 if (dataBinding.progressDialog.visibility == View.GONE) {
                     if (layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() == movieListSize - 1) {
-                        //bottom of list!
                         dataBinding.progressDialog.visibility = View.VISIBLE
                         movieViewModel.fetchMovieListFromAPI()
                     }
