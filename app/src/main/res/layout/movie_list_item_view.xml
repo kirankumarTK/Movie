@@ -2,6 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="movie_model"
+            type="com.example.movie.Results" />
+
+        <variable
+            name="imagePath"
+            type="String" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +25,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{imagePath}" />
 
         <TextView
             android:id="@+id/movie_desc"
@@ -23,6 +35,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:maxLines="2"
+            android:text="@{movie_model.originalTitle}"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/_10sdp"

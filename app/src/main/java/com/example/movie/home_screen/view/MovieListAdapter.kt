@@ -8,7 +8,6 @@ import com.example.movie.BuildConfig
 import com.example.movie.R
 import com.example.movie.Results
 import com.example.movie.databinding.MovieListItemViewBinding
-import com.example.movie.loadImage
 
 class MovieListAdapter(private val movieList: ArrayList<Results>) :
     RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
@@ -25,10 +24,10 @@ class MovieListAdapter(private val movieList: ArrayList<Results>) :
     override fun getItemCount() = movieList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.movieView.movieModel = movieList[position]
+        holder.movieView.imagePath = BuildConfig.IMAGE_PATH + movieList[position].posterPath
 
-        holder.movieView.movieImg.loadImage(BuildConfig.IMAGE_PATH + movieList[position].posterPath)
-
-        holder.movieView.movieDesc.text = movieList[position].originalTitle
+//        holder.movieView.movieDesc.text = movieList[position].originalTitle
     }
 
     fun updateList(tempList: ArrayList<Results>) {
